@@ -1,11 +1,28 @@
-
-import Image from 'next/image'
+import { useState } from 'react'
 import NavBar from '../components/NavBar'
-import styles from '../styles/Home.module.css'
 import {useRouter} from 'next/router' 
+import generatePassword from '../utils/passwordGenerator'
 
 export default function Home() {
   const router = useRouter()
+
+  const [password , setPassword] = useState("");
+  const [copiedMessage , setCopiedMessage] = useState(false)
+
+  const fillPassword = () => {
+    const newPassword = generatePassword()
+    setPassword(newPassword)
+  }
+
+  const handleCopyClick = () => { 
+    navigator.clipboard.writeText(password)
+    setCopiedMessage(true)
+
+    setTimeout(()=>{
+      setCopiedMessage(false)
+    } , 2000)
+  }
+
   return (
   <div className='w-[100%]'>
 
@@ -45,8 +62,19 @@ export default function Home() {
           <h1 className='text-[30px] font-seminbold '>Password Generator</h1>
           <div className='flex justify-center items-center h-[90%]'>
             <div className='w-full flex flex-col justify-between items-center h-[63%] my-auto '>
-                <input className='w-[90%] border-[2px] border-cyan-200 rounded-[5px] p-[10px]'/>
-                <button className='w-[90%] border-[2px] rounded-[5px] p-[10px] bg-cyan-200 text-[1rem] font-medium'>Generate Password</button>
+                <div className='w-[90%] relative '>
+                  <input id='generatedPassword' className='m-auto w-full border-[2px] border-cyan-200 rounded-[5px] p-[10px]' defaultValue={password} onChange={(e)=>setPassword(e.target.value)}/>
+                  {password!="" && <button className = "w-[fit-content] absolute right-[0.5rem] top-[0.25rem] border-[2px] rounded-[5px] p-[10px] bg-cyan-200 text-[1rem] font-medium cursor-pointer" onClick={handleCopyClick}> 
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='h-[1rem]'><path d="M21 10v10a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1V10a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1zM6 14H5V5h9v1a1 1 0 0 0 2 0V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h2a1 1 0 0 0 0-2z"/></svg>
+                  </button>}
+
+                  { copiedMessage && 
+                  <div className='bg-cyan-200 w-[fit-content] p-[10px] font-semibold rounded-[10px] absolute bottom-[53px] right-[-0.05rem] '>
+                    Copied
+                  </div>}
+                  
+                </div>
+                <button className='w-[90%] border-[2px] rounded-[5px] p-[10px] bg-cyan-200 text-[1rem] font-medium' onClick={fillPassword}>Generate Password</button>
             </div>
           </div>
         </div>
