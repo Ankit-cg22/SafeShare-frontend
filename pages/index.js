@@ -42,7 +42,7 @@ export default function Home() {
 
     axios({
       method: 'post',
-      url: 'http://localhost:5000/upload',
+      url: 'https://safeshare-cg22.herokuapp.com/upload',
       data: formData,
       headers: {'Content-Type': 'multipart/form-data' }
     

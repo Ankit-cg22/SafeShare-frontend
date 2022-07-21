@@ -6,7 +6,7 @@ var fileDownload = require('js-file-download');
 
 export default function FileDownload(props) {
     const router = useRouter()
-    const baseURL = 'http://localhost:5000/download/'
+    const baseURL = 'https://safeshare-cg22.herokuapp.com/download/'
     const [fileId, setFileId] = useState()
     const [password , setPassword] = useState("")
     const [passwordNeeded , setPasswordNeeded] = useState(false)
@@ -42,7 +42,7 @@ export default function FileDownload(props) {
     useEffect(()=>{
         if(!router.isReady) return;
         const fid = router.query.fid
-        const url = "http://localhost:5000/file/" + fid 
+        const url = "https://safeshare-cg22.herokuapp.com/file/" + fid 
         setFileId(fid)
         axios({
             method : "get",

@@ -8,7 +8,7 @@ export default function upload(props) {
     const router = useRouter()
     const [url , setUrl] = useState("")
     const baseURL = 'http://localhost:3000/download/'
-    const serverBaseUrl = 'http://localhost:5000'
+    const serverBaseUrl = 'https://safeshare-cg22.herokuapp.com'
     const [copiedMessage , setCopiedMessage] = useState(false)
 
     const handleCopyClick = () => { 
