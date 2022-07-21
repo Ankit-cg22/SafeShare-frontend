@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import {useRouter} from 'next/router' 
-export default function upload() {
+export default function Download() {
     const router = useRouter()
   return (
     <div className='w-[100%]'>
@@ -14,7 +14,7 @@ export default function upload() {
                     <div className='w-[100%] my-auto flex flex-col justify-between items-center  h-[80%] ' >
                         <h1>Your file is ready to be downloaded !</h1>
                         <div className='form-group  w-[90%]  flex justify-between'>
-                            <label for="pasword" className='w-[14%] text-[1.2rem] flex items-center '> Password :</label>
+                            <label htmlFor="pasword" className='w-[14%] text-[1.2rem] flex items-center '> Password :</label>
                             <input className="w-[85%] border-[2px] border-cyan-200 rounded-[5px] p-[10px]" id = "pasword" name ="pasword" type="pasword" />
                         </div>
                         <button className='w-[90%] border-[2px] rounded-[5px] p-[10px] bg-cyan-200 text-[1rem] font-medium' onClick={() => router.push('/')}>Download</button>

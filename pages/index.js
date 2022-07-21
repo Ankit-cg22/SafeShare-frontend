@@ -79,13 +79,13 @@ export default function Home() {
         <div className='mark h-[280px] m-[20px] p-[20px] rounded-[10px] '> 
           <h1 className='text-[30px] font-seminbold '>File Upload</h1>
           <div className='h-[85%] flex justify-center items-center'>
-              <form onSubmit={(e) => handleFormSubmit(e)} method="POST" action="http://localhost:5000/upload" enctype="multipart/form-data" className='w-[100%] my-auto flex flex-col justify-between items-center  h-[80%] ' > 
+              <form onSubmit={(e) => handleFormSubmit(e)} method="POST" action="http://localhost:5000/upload" encType="multipart/form-data" className='w-[100%] my-auto flex flex-col justify-between items-center  h-[80%] ' > 
                 <div className='form-group w-[90%]  flex justify-between'>
-                  <label for="file " className='w-[14%] text-[1.2rem] flex items-center '>File : </label>
+                  <label htmlFor="file " className='w-[14%] text-[1.2rem] flex items-center '>File : </label>
                   <input id = "file" name ="file" type="file"  className='w-[85%] ' onChange={(e) => handleFileUpload(e)} />
                 </div>
                 <div className='form-group  w-[90%]  flex justify-between'>
-                  <label for="pasword" className='w-[14%] text-[1.2rem] flex items-center '> Password :</label>
+                  <label htmlFor="pasword" className='w-[14%] text-[1.2rem] flex items-center '> Password :</label>
                   <input className="w-[85%] border-[2px] border-cyan-200 rounded-[5px] p-[10px]" id = "pasword" name ="pasword" type="pasword"  onChange={(e) => handleFilePassword(e)}/>
                 </div>
 
