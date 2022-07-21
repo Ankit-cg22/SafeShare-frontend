@@ -5,6 +5,7 @@ import generatePassword from '../utils/passwordGenerator'
 
 import axios from 'axios';
 
+
 export default function Home() {
   const router = useRouter()
   // const API = axios.create( { baseURL : 'http://localhost:5000' } )
@@ -44,6 +45,7 @@ export default function Home() {
       url: 'http://localhost:5000/upload',
       data: formData,
       headers: {'Content-Type': 'multipart/form-data' }
+    
     })
     .then(res => {
       console.log(res.data.fileId)
