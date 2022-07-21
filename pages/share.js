@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '../components/NavBar'
 import {useRouter} from 'next/router' 
+import axios from 'axios'
+
+
 export default function upload(props) {
     const router = useRouter()
     const [url , setUrl] = useState("")
     const baseURL = 'http://localhost:3000/download/'
+    const serverBaseUrl = 'http://localhost:5000'
     const [copiedMessage , setCopiedMessage] = useState(false)
 
     const handleCopyClick = () => { 
@@ -17,11 +21,23 @@ export default function upload(props) {
     }
 
     useEffect(() => {
-        console.log(router.query)
+        if(!router.isReady) return;
       const {fileId} = router.query
       const url = baseURL + fileId
-      setUrl(url)
-    }, [])
+        let shorturl ;
+      axios({
+        method : "post" , 
+        url : serverBaseUrl + '/short-url', 
+        data : {fullURL : url},
+      })
+      .then(res=>{
+        console.log("res= " , res.data.shortUrl);
+        setUrl(serverBaseUrl + '/su/' + res.data.shortUrl)
+      })
+      .catch(err=>{
+        console.log(err.message)
+      })
+    }, [router.isReady])
     
   return (
     <div className='w-[100%]'>
