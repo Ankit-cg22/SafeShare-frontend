@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import CircularLoader from '../../components/CircularLoader'
 var fileDownload = require('js-file-download');
-import { baseServerUrl , baseClientUrl } from '../utils/constants'
+import { baseServerUrl } from '../../utils/constants'
 
 export default function FileDownload(props) {
     const router = useRouter()
