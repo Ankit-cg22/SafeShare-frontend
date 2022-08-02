@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react'
 import NavBar from '../components/NavBar'
 import {useRouter} from 'next/router' 
 import axios from 'axios'
-
+import { baseServerUrl , baseClientUrl } from '../utils/constants'
 
 export default function Share(props) {
     const router = useRouter()
     const [url , setUrl] = useState("")
-    const baseURL = 'https://safe-share-frontend.vercel.app/download/'
-    const serverBaseUrl = 'https://safeshare-cg.herokuapp.com'
+    const baseURL = baseClientUrl + '/download/'
     const [copiedMessage , setCopiedMessage] = useState(false)
 
     const handleCopyClick = () => { 
@@ -27,12 +26,12 @@ export default function Share(props) {
         let shorturl ;
       axios({
         method : "post" , 
-        url : serverBaseUrl + '/short-url', 
+        url : baseServerUrl + '/short-url', 
         data : {fullURL : url},
       })
       .then(res=>{
         console.log("res= " , res.data.shortUrl);
-        setUrl(serverBaseUrl + '/su/' + res.data.shortUrl)
+        setUrl(baseServerUrl + '/su/' + res.data.shortUrl)
       })
       .catch(err=>{
         console.log(err.message)

@@ -4,7 +4,7 @@ import {useRouter} from 'next/router'
 import generatePassword from '../utils/passwordGenerator'
 import CircularLoader from '../components/CircularLoader'
 import axios from 'axios';
-
+import { baseServerUrl } from '../utils/constants'
 
 export default function Home() {
   const router = useRouter()
@@ -43,7 +43,7 @@ export default function Home() {
     setLoading(true)
     axios({
       method: 'post',
-      url: 'https://safeshare-cg.herokuapp.com/upload',
+      url: baseServerUrl + '/upload',
       data: formData,
       headers: {'Content-Type': 'multipart/form-data' }
     

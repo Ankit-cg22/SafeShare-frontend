@@ -4,10 +4,11 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import CircularLoader from '../../components/CircularLoader'
 var fileDownload = require('js-file-download');
+import { baseServerUrl , baseClientUrl } from '../utils/constants'
 
 export default function FileDownload(props) {
     const router = useRouter()
-    const baseURL = 'https://safeshare-cg.herokuapp.com/download/'
+    const baseURL = baseServerUrl + '/download/'
     const [fileId, setFileId] = useState()
     const [password , setPassword] = useState("")
     const [passwordNeeded , setPasswordNeeded] = useState(false)
@@ -47,7 +48,7 @@ export default function FileDownload(props) {
     useEffect(()=>{
         if(!router.isReady) return;
         const fid = router.query.fid
-        const url = "https://safeshare-cg.herokuapp.com/file/" + fid 
+        const url = baseServerUrl + "/file/" + fid 
         setFileId(fid)
         axios({
             method : "get",
