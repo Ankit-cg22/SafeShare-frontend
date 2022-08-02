@@ -2,7 +2,7 @@ import { useState } from 'react'
 import NavBar from '../components/NavBar'
 import {useRouter} from 'next/router' 
 import generatePassword from '../utils/passwordGenerator'
-
+import CircularLoader from '../components/CircularLoader'
 import axios from 'axios';
 
 
@@ -14,6 +14,7 @@ export default function Home() {
   const [password , setPassword] = useState("")
   const [generatedPassword , setGeneratedPassword] = useState("");
   const [copiedMessage , setCopiedMessage] = useState(false)
+  const [loading , setLoading]= useState(false)
 
   const fillPassword = () => {
     const newPassword = generatePassword()
@@ -39,15 +40,16 @@ export default function Home() {
   const handleFormSubmit =  async (e) => { 
     e.preventDefault()
     const formData = {file : file , password : password}
-
+    setLoading(true)
     axios({
       method: 'post',
-      url: 'https://safeshare-cg22.herokuapp.com/upload',
+      url: 'https://safeshare-cg.herokuapp.com/upload',
       data: formData,
       headers: {'Content-Type': 'multipart/form-data' }
     
     })
     .then(res => {
+      setLoading(false)
       console.log(res.data.fileId)
       router.push({
         pathname : '/share', 
@@ -82,14 +84,16 @@ export default function Home() {
               <form onSubmit={(e) => handleFormSubmit(e)} method="POST" action="http://localhost:5000/upload" encType="multipart/form-data" className='w-[100%] my-auto flex flex-col justify-between items-center  h-[80%] ' > 
                 <div className='form-group w-[90%]  flex justify-between'>
                   <label htmlFor="file " className='w-[14%] text-[1.2rem] flex items-center '>File : </label>
-                  <input id = "file" name ="file" type="file"  className='w-[85%] ' onChange={(e) => handleFileUpload(e)} />
+                  <input required id = "file" name ="file" type="file"  className='w-[85%] ' onChange={(e) => handleFileUpload(e)} />
                 </div>
                 <div className='form-group  w-[90%]  flex justify-between'>
                   <label htmlFor="pasword" className='w-[14%] text-[1.2rem] flex items-center '> Password :</label>
                   <input className="w-[85%] border-[2px] border-cyan-200 rounded-[5px] p-[10px]" id = "pasword" name ="pasword" type="pasword"  onChange={(e) => handleFilePassword(e)}/>
                 </div>
 
-                <button className='w-[90%] border-[2px] rounded-[5px] p-[10px] bg-cyan-200 text-[1rem] font-medium' type='submit'>Share</button>
+                <button className='w-[90%] border-[2px] rounded-[5px] p-[10px] bg-cyan-200 text-[1rem] font-medium flex justify-center items-center' type='submit'>
+                  {loading ? <CircularLoader/> : <p>Share</p>} 
+                </button>
               </form>
 
           </div>

@@ -7,8 +7,8 @@ import axios from 'axios'
 export default function Share(props) {
     const router = useRouter()
     const [url , setUrl] = useState("")
-    const baseURL = 'https://safe-share-frontend.vercel.app/download/'
-    const serverBaseUrl = 'https://safeshare-cg22.herokuapp.com'
+    const baseURL = 'https://safe-share-frontend.vercel.app/'
+    const serverBaseUrl = 'https://safeshare-cg.herokuapp.com'
     const [copiedMessage , setCopiedMessage] = useState(false)
 
     const handleCopyClick = () => { 
