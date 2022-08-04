@@ -26,7 +26,7 @@ export default function Share(props) {
         let shorturl ;
       axios({
         method : "post" , 
-        url : baseServerUrl + '/short-url', 
+        url : baseServerUrl + '/su', 
         data : {fullURL : url},
       })
       .then(res=>{
