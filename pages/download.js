@@ -4,7 +4,7 @@ import {useRouter} from 'next/router'
 export default function Download() {
     const router = useRouter()
   return (
-    <div className='w-[100%]'>
+    <div className='w-[100%] mark'>
         <NavBar/>
         <div className="max-w-[1400px] m-auto">
             <div className='w-[70%] m-auto '>

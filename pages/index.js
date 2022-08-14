@@ -66,8 +66,8 @@ export default function Home() {
 
     <NavBar/>
 
-    <div  className='w-[100%] max-w-[1400px] m-auto h-[100vh] flex '>
-      <div className='w-[30%] mark px-[15px] py-[20px]'>
+    <div  className='w-[100%] max-w-[1400px] m-auto h-[100vh] flex mainContainer mt-[300px] md:mt-[0]'>
+      <div className='w-[100%] md:w-[30%] mark px-[15px] py-[20px] '>
         <h1 className='text-[20px] font-[400]'>Welcome to SafeShare</h1>
         <h1 className='mb-[10px]'>This platform provides you with service to share all types of files protected by a password .</h1>
 
@@ -77,18 +77,18 @@ export default function Home() {
         
       </div>
 
-      <div className='w-[70%]  '>
+      <div className='w-[70%] mainBox '>
         <div className='mark h-[280px] m-[20px] p-[20px] rounded-[10px] '> 
-          <h1 className='text-[30px] font-seminbold '>File Upload</h1>
-          <div className='h-[85%] flex justify-center items-center'>
+          <h1 className='text-[30px] font-seminbold  w-[100%]'>File Upload</h1>
+          <div className='h-[85%] flex justify-center items-center   w-[100%]'>
               <form onSubmit={(e) => handleFormSubmit(e)} method="POST" action="http://localhost:5000/upload" encType="multipart/form-data" className='w-[100%] my-auto flex flex-col justify-between items-center  h-[80%] ' > 
                 <div className='form-group w-[90%]  flex justify-between'>
-                  <label htmlFor="file " className='w-[14%] text-[1.2rem] flex items-center '>File : </label>
-                  <input required id = "file" name ="file" type="file"  className='w-[85%] ' onChange={(e) => handleFileUpload(e)} />
+                  <label htmlFor="file " className='w-[15%] text-[1.2rem] flex items-center mb-[10px] md:mb-[0]'>File : </label>
+                  <input required id = "file" name ="file" type="file"  className='w-[84%] ' onChange={(e) => handleFileUpload(e)} />
                 </div>
-                <div className='form-group  w-[90%]  flex justify-between'>
-                  <label htmlFor="pasword" className='w-[14%] text-[1.2rem] flex items-center '> Password :</label>
-                  <input className="w-[85%] border-[2px] border-cyan-200 rounded-[5px] p-[10px]" id = "pasword" name ="pasword" type="pasword"  onChange={(e) => handleFilePassword(e)}/>
+                <div className='form-group  w-[90%]  flex justify-between  flex-col md:flex-row mb-[10px] md:mb-[0px]' >
+                    <label htmlFor="pasword" className='md:w-[15%] text-[1.2rem] flex items-center w-[50%] '> Password :</label>
+                    <input className=" w-[100%] md:w-[84%] border-[2px] border-cyan-200 rounded-[5px] p-[10px]" id = "pasword" name ="pasword" type="pasword"  onChange={(e) => handleFilePassword(e)}/>
                 </div>
 
                 <button className='w-[90%] border-[2px] rounded-[5px] p-[10px] bg-cyan-200 text-[1rem] font-medium flex justify-center items-center' type='submit'>

@@ -46,3 +46,13 @@ a {
     transform: rotate(360deg);
   }
 }
+
+@media(max-width : 800px){
+  .mainBox{
+    width:99%;
+  }
+  .mainContainer{
+    display:flex;
+    flex-direction: column-reverse;
+  }
+}
