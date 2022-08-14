@@ -43,12 +43,12 @@ export default function Share(props) {
         <NavBar/>
         <div className='max-w-[1400px] m-auto  '>
             <div className='w-[70%] m-auto mainBox  '>
-                <div className='mark h-[280px] m-[20px] p-[20px] rounded-[10px] '> 
+                <div className='mark h-[fit-content] min-h-[280px] m-[20px] p-[20px] rounded-[10px] '> 
                 <h1 className='text-[30px] font-seminbold '>File Share</h1>
                 <div className='h-[85%] flex justify-center items-center'>
                     <div className='w-[100%] my-auto flex flex-col justify-between items-center  h-[80%] ' > 
-                        <h1 className="w-[100%] text-center">Your file  has been uploaded successfully! Here is the url !</h1>
-                        <div className='form-group w-[90%]  flex justify-between relative flex-col md:flex-row mb-[10px] md:mb-[0px]'>
+                        <h1 className="w-[100%] text-center my-[10px]">Your file  has been uploaded successfully! Here is the url !</h1>
+                        <div className='form-group w-[90%]  flex justify-between relative flex-col md:flex-row mb-[10px] md:mb-[30px] '>
                             <label htmlFor="url " className='w-[50%] md:w-[14%] text-[1.2rem] flex items-center '>Url :</label>
                             <input id = "url" name ="url" type="url"  className='w-[100%] md:w-[85%] border-[2px] border-cyan-200 rounded-[5px] p-[10px]' value={url ? url : ""}/>
                             {url!="" && <button className = "w-[fit-content] absolute right-[0.5rem] top-[2rem] md:top-[0.25rem] border-[2px] rounded-[5px] p-[10px] bg-cyan-200 text-[1rem] font-medium cursor-pointer" onClick={handleCopyClick}> 
@@ -61,7 +61,7 @@ export default function Share(props) {
                             </div>}
                         </div>
                         
-                        <button className='w-[50%] border-[2px] rounded-[5px] p-[10px] bg-cyan-200 text-[1rem] font-medium' onClick={() => router.push('/')}>Share more files</button>
+                        <button className='w-[90%] md:w-[50%] border-[2px] rounded-[5px] p-[10px] bg-cyan-200 text-[1rem] font-medium' onClick={() => router.push('/')}>Share more files</button>
                     </div>
 
                 </div>
