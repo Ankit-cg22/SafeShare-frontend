@@ -83,7 +83,7 @@ export default function Home() {
           <div className=' min-h-[238px] flex justify-between items-center'>
               <form onSubmit={(e) => handleFormSubmit(e)} method="POST" action="http://localhost:5000/upload" encType="multipart/form-data" className='w-[100%] my-auto flex flex-col justify-between items-center  min-h-[180px] ' > 
                 <div className='form-group w-[90%]  flex justify-between flex-col md:flex-row mb-[10px] md:mb-[0px]'>
-                  <label htmlFor="file " className='w-[50%] md:w-[15%] text-[1.2rem] flex items-center mb-[10px] md:mb-[0]'>File : </label>
+                  <label htmlFor="file " className='w-[50%] md:w-[15%] text-[1.2rem] flex items-center '>File : </label>
                   <input required id = "file" name ="file" type="file"  className='w-[84%] ' onChange={(e) => handleFileUpload(e)} />
                 </div>
                 <div className='form-group  w-[90%]  flex justify-between  flex-col md:flex-row mb-[10px] md:mb-[0px]' >
