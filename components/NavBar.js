@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 export default function NavBar() {
     const router = useRouter()
   return (
-    <div className='w-[100%] py-[10px] px-[20px] flex justify-between items-center  shadow-under'> 
+    <div className='w-[100%] py-[10px] px-[20px] flex justify-between items-center  shadow-under '> 
         <div onClick={() => router.push('/')} className="cursor-pointer">
           <h1 className='text-[30px] font-semibold'>SafeShare</h1>
           <p>Password based file sharing platform </p>

@@ -66,7 +66,7 @@ export default function Home() {
 
     <NavBar/>
 
-    <div  className='w-[100%] max-w-[1400px] m-auto h-[100vh] flex mainContainer mt-[295px] md:mt-[0]'>
+    <div  className='w-[100%] max-w-[1400px] m-auto h-[fit-content] min-h-[100vh] flex mainContainer md:mt-[0]'>
       <div className='w-[100%] md:w-[30%] mark px-[15px] py-[20px] '>
         <h1 className='text-[20px] font-[400]'>Welcome to SafeShare</h1>
         <h1 className='mb-[10px]'>This platform provides you with service to share all types of files protected by a password .</h1>
@@ -78,7 +78,7 @@ export default function Home() {
       </div>
 
       <div className='w-[70%] mainBox '>
-        <div className='mark h-[fit-content] min-h-[250px] m-[20px] p-[20px] rounded-[10px]  '> 
+        <div className='mark h-[fit-content] min-h-[280px] m-[20px] p-[20px] rounded-[10px]  '> 
           <h1 className='text-[30px] font-seminbold  w-[100%]'>File Upload</h1>
           <div className=' min-h-[238px] flex justify-between items-center'>
               <form onSubmit={(e) => handleFormSubmit(e)} method="POST" action="http://localhost:5000/upload" encType="multipart/form-data" className='w-[100%] my-auto flex flex-col justify-between items-center  min-h-[180px] ' > 

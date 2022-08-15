@@ -69,10 +69,10 @@ export default function FileDownload(props) {
         <NavBar/>
         <div className='max-w-[1400px] m-auto w-[100%] '>
             <div className='w-[70%] m-auto mainBox  '>
-                <div className='mark h-[280px] m-[20px] p-[20px] rounded-[10px] '> 
-                <h1 className='text-[30px] font-seminbold '>File Download</h1>
-                <div className='h-[85%] flex justify-center items-center mb-[20px]'>
-                    <div className='w-[90%] my-auto flex flex-col justify-between items-center  h-[60%] ' > 
+                <div className='mark h-[fit-content] min-h-[280px] m-[20px] p-[20px] rounded-[10px] '> 
+                <h1 className='text-[30px] font-seminbold mb-[20px]'>File Download</h1>
+                <div className='h-[100%] flex justify-center items-center mb-[20px]  my-auto '>
+                    <div className='w-[100%] my-auto flex flex-col justify-between items-center  min-h-[120px] ' > 
 
                         {passwordNeeded && 
                         <div className='form-group  w-[90%]  flex justify-between  flex-col md:flex-row mb-[10px] md:mb-[0px]' >
